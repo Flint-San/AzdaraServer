@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Azdara.GenerateSchema.AzdaraTable">
+    <Position X="3.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAACAAQBAAAIAAAAAQAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\Metadata\AzdaraTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Azdara.GenerateSchema.AzdaraColumn">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAAAAAAAAAAASAAAAAAAACAAAgAAgAAAEQAAAAAA=</HashCode>
+      <FileName>Models\Metadata\AzdaraColumn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Azdara.GenerateSchema.AzdaraIndexes">
+    <Position X="6.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAICCAAAABAAAAAA=</HashCode>
+      <FileName>Models\Metadata\AzdaraIndexes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Azdara.GenerateSchema.AzdaraPrimaryKeys">
+    <Position X="3.75" Y="3.25" Width="2.25" />
+    <InheritanceLine Type="Azdara.GenerateSchema.AzdaraIndexes" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="6.875" Y="2.31" />
+        <Point X="6.875" Y="3.01" />
+        <Point X="4.875" Y="3.01" />
+        <Point X="4.875" Y="3.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Models\Metadata\AzdaraPrimaryKeys.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Azdara.GenerateSchema.AzdaraForeignKeys">
+    <Position X="3.75" Y="5.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAgAAAAAAAAAEAAKEAAAEAAA=</HashCode>
+      <FileName>Models\Metadata\AzdaraForeignKeys.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Azdara.GenerateSchema.AzdaraIndexColumns">
+    <Position X="6.5" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAQAAAACA=</HashCode>
+      <FileName>Models\Metadata\AzdaraIndexColumns.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
