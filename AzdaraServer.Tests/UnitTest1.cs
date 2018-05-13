@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AzdaraServer.Tests
+namespace AzdaraServer.Chinook.Tests
 {
     [TestClass]
     public class UnitTest1

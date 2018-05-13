@@ -50,7 +50,7 @@
             
             return pk;
         }
-        public virtual void BuildAll(string dirCSharpCode)
+        public virtual void WriteAll(string dirCSharpCode)
         {
             int countTables = 0;
             int countIgnoreTables = 0;
@@ -244,7 +244,8 @@
         //Append column as property of class. 
         public virtual void WriteColumn(AzdaraColumn column)
         {
-            codeGen.AppendFormat("{0}public {1} {2}{3} {{ get; set; }}", _ss.NewLineAndTripleTab, column.CSharpColumnDataType, ConfigExt.prefixCSharp, column.SqlColumnName);
+            //codeGen.AppendFormat("{0}public {1} {2}{3} {{ get; set; }}", _ss.NewLineAndTripleTab, column.CSharpColumnDataType, ConfigExt.prefixCSharp, column.SqlColumnName);
+            codeGen.AppendFormat("{0}public {1} {2} {{ get; set; }}", _ss.NewLineAndTripleTab, column.CSharpColumnDataType, column.CSharpColumnName);
         }
         
         //ForeignKeyAttribute - Can be applied to a property to mark it as a foreign key property.
@@ -275,7 +276,8 @@
                                            .Where(x => x.SqlIndexName == fkType.SqlIndexName);
                     
                     var fkeysAttribute = fkeysPrepare
-                       .Select(s => string.Format("{0}{1}", ConfigExt.prefixCSharp, s.SqlFK_ColumnName.ToString())) //Вытащим все ключи(поля) входящие в Foreign key, полей в fk может быть несколько.
+                       //.Select(s => string.Format("{0}{1}", ConfigExt.prefixCSharp, s.SqlFK_ColumnName.ToString())) //Вытащим все ключи(поля) входящие в Foreign key, полей в fk может быть несколько.
+                       .Select(s => s.CSharpFKColumnName) //Вытащим все ключи(поля) входящие в Foreign key, полей в fk может быть несколько.
                        .ToArray();
 
                     WriteAnnotationForeignKey(string.Join(",", fkeysAttribute));

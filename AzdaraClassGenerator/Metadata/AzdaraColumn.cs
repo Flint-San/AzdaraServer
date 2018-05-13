@@ -1,12 +1,23 @@
 ﻿namespace Azdara.Metadata
 {
+    using Azdara.CodeGenerator.Helpers;
+
     public class AzdaraColumn : AzdaraTable
     {
         /// <summary>
         /// En: C# column name
         /// Ru: Имя столбца в C#
         /// </summary>
-        public string CSharpColumnName { get { return string.Format("col_{0}", SqlColumnOrdinal); } }
+        public string CSharpColumnName {
+            get {
+                string uniqueCname = SqlColumnName.CSharpName();
+                if (uniqueCname.Equals(CSharpTableName)) //proporty name MUST not equal class name, because it's reserved for constructor name!
+                {
+                    uniqueCname = string.Concat("_",uniqueCname);
+                }
+                return uniqueCname;
+            }
+        }
 
         /// <summary>
         /// En: C# datatype of the column.

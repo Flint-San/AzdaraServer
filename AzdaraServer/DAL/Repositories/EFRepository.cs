@@ -67,8 +67,7 @@
             var fullQuery = query.Where(eSQL, parameters.ToArray());
             return fullQuery;
         }
-
-
+        
         #endregion
 
         /// <summary>
@@ -86,7 +85,7 @@
 
         #region "READ"
         /// <summary>
-        /// Get all rows.
+        /// Query entity set. Get all rows.
         /// </summary>
         public IQueryable<T> GetAll()
         {
@@ -94,12 +93,13 @@
             return query; //get all records
         }
         /// <summary>
-        /// Get row(s) by primary keys.
+        /// Query single entity. 
         /// </summary>
         /// <param name="primaryKeys">The PRIMARY KEY constraint uniquely identifies each row in an entity. 
         /// Primary keys must contain UNIQUE values, and cannot contain NULL values.
         /// An entity can have only one primary key, which may consist of single or multiple proporties.</param>
-        /// <returns>Returns record by keys. Returns more recors if keys are not unique in a database table!</returns>
+        /// <returns>Returns record by keys. 
+        /// Note: Returns more recors if keys are not unique in a database table!</returns>
         public IQueryable<T> GetByKeys(IEnumerable<KeyValuePair<string, object>> primaryKeys)
         {
             var fullQuery = FindAsObjectQuery(primaryKeys);
@@ -109,7 +109,7 @@
 
         #region "CREATE(Insert record)"
         /// <summary>
-        /// Insert new record in a database table.
+        /// Create an entity. Insert new record in a database table.
         /// </summary>
         /// <param name="newEntity">An entity consisting of the fields and values for new record.</param>
         public void AddEntity(object newEntity)
@@ -120,7 +120,7 @@
 
         #region "DELETE(single record)"
         /// <summary>
-        /// Delete record from a database table.
+        /// Delete an entity. Delete record from a database table.
         /// </summary>
         /// <param name="originalEntity">Entity to remove.</param>
         public void RemoveEntity(object originalEntity)
@@ -131,7 +131,7 @@
 
         #region "UPDATE(single record. Warning! EF can't update primary keys!)"
         /// <summary>
-        /// Update ALL COLUMNS in a single record in database table. Warning! Entityframework can't update primary keys!
+        /// Fully update an entity. Update ALL COLUMNS in a single record in database table. Warning! Entityframework can't update primary keys!
         /// </summary>
         /// <param name="primaryKeys">The PRIMARY KEY constraint uniquely identifies each row in an entity. 
         /// Primary keys must contain UNIQUE values, and cannot contain NULL values.
@@ -149,7 +149,7 @@
             db.Entry(newEntity).State = EntityState.Modified;
         }
         /// <summary>
-        /// Update a(the) CUSTOM column(s) for in a database table. Warning! Entityframework can't update primary keys!
+        /// Partially update an entity. Update a(the) CUSTOM column(s) for in a database table. Warning! Entityframework can't update primary keys!
         /// </summary>
         /// <param name="primaryKeys">The PRIMARY KEY constraint uniquely identifies each row in an entity. 
         /// Primary keys must contain UNIQUE values, and cannot contain NULL values.

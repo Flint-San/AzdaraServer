@@ -46,47 +46,47 @@
             }
         }
 
-        public static IEnumerable<AzdaraIndexes> GetAzdaraIndexes(this DataTable table)
-        {
-            foreach (DataRow row in table.Rows)
-            {
-                yield return new AzdaraIndexes
-                {
-                    SqlDb = row["TABLE_CATALOG"] as string,
-                    SqlTableName = row["TABLE_NAME"] as string,
-                    SqlTableOwner = row["TABLE_SCHEMA"] as string,
+        //public static IEnumerable<AzdaraIndexes> GetAzdaraIndexes(this DataTable table)
+        //{
+        //    foreach (DataRow row in table.Rows)
+        //    {
+        //        yield return new AzdaraIndexes
+        //        {
+        //            SqlDb = row["TABLE_CATALOG"] as string,
+        //            SqlTableName = row["TABLE_NAME"] as string,
+        //            SqlTableOwner = row["TABLE_SCHEMA"] as string,
 
-                    SqlConstraintCatalog = row["constraint_catalog"] as string,
-                    SqlConstraintOwner = row["constraint_schema"] as string,
-                    SqlConstraintName = row["constraint_name"] as string,
-                    SqlIndexName = row["index_name"] as string
-                };
+        //            SqlConstraintCatalog = row["constraint_catalog"] as string,
+        //            SqlConstraintOwner = row["constraint_schema"] as string,
+        //            SqlConstraintName = row["constraint_name"] as string,
+        //            SqlIndexName = row["index_name"] as string
+        //        };
 
-            }
-        }
+        //    }
+        //}
 
-        public static IEnumerable<AzdaraIndexColumns> GetAzdaraIndexColumns(this DataTable table)
-        {
-            foreach (DataRow row in table.Rows)
-            {
-                yield return new AzdaraIndexColumns
-                {
-                    SqlDb = row["TABLE_CATALOG"] as string,
-                    SqlTableName = row["TABLE_NAME"] as string,
-                    SqlTableOwner = row["TABLE_SCHEMA"] as string,
+        //public static IEnumerable<AzdaraIndexColumns> GetAzdaraIndexColumns(this DataTable table)
+        //{
+        //    foreach (DataRow row in table.Rows)
+        //    {
+        //        yield return new AzdaraIndexColumns
+        //        {
+        //            SqlDb = row["TABLE_CATALOG"] as string,
+        //            SqlTableName = row["TABLE_NAME"] as string,
+        //            SqlTableOwner = row["TABLE_SCHEMA"] as string,
 
-                    SqlConstraintCatalog = row["constraint_catalog"] as string,
-                    SqlConstraintOwner = row["constraint_schema"] as string,
-                    SqlConstraintName = row["constraint_name"] as string,
-                    SqlIndexName = row["index_name"] as string,
+        //            SqlConstraintCatalog = row["constraint_catalog"] as string,
+        //            SqlConstraintOwner = row["constraint_schema"] as string,
+        //            SqlConstraintName = row["constraint_name"] as string,
+        //            SqlIndexName = row["index_name"] as string,
 
-                    SqlColumnName = row["column_name"] as string,
-                    SqlIndexColumnOrdinal = (int)row["ordinal_position"],
-                    SqlKeyType = (byte)row["KeyType"]
-                };
+        //            SqlColumnName = row["column_name"] as string,
+        //            SqlIndexColumnOrdinal = (int)row["ordinal_position"],
+        //            SqlKeyType = (byte)row["KeyType"]
+        //        };
 
-            }
-        }
+        //    }
+        //}
 
         public static IEnumerable<AzdaraPrimaryKeys> GetMsSqlPrimaryKeys(this DbConnection connection)
         {

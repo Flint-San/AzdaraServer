@@ -31,10 +31,10 @@ namespace AzdaraServer.Controllers
         //Examples:
         //1) Get all records: http://host/Azdara/odata/Customers
         //2) Get a single record by surrogate id: http://host/Azdara/odata/Customers(1)
-        //3) Get a single record by composite primary keys: http://host/Azdara/Passport(firstName = "Aleksander", lastName = "Stolpovskikh")
-        //4) Get a single record by other composite primary keys: http://host/Azdara/DriverLicense(firstName = "Alexander", lastName = "Stolpovskikh", middleName = "Nickolaevich")
+        //3) Get a single record by composite primary keys: http://host/Azdara/odata/Passport(firstName = "Aleksander", lastName = "Stolpovskikh")
+        //4) Get a single record by other composite primary keys: http://host/Azdara/odata/DriverLicense(firstName = "Alexander", lastName = "Stolpovskikh", middleName = "Nickolaevich")
         // etc you can have more composite primary keys with any datatypes in your entity
-        //5) any datatypes http://host/Azdara/Telephones(firstDigit = "+7", areaDigit = 351, phone = 9000000) 
+        //5) any datatypes http://host/Azdara/odata/Telephones(firstDigit = "+7", areaDigit = 351, phone = 9000000) 
         //thus TableController has not methods as like GetById(datatype key) or GetByKeys(key1,key2,key3 ... etc how more keys in an entity can you have?), 
         //because you can have any datatype for your key(s)!
         public IQueryable<T> Get()
@@ -110,5 +110,10 @@ namespace AzdaraServer.Controllers
             return Updated(entity);
         }
         #endregion
+
+        //public System.Net.Http.HttpResponseMessage CreateLink([FromODataUri] int key,string navigationProperty, [FromBody] System.Uri link)
+        //{
+        //    return new System.Net.Http.HttpResponseMessage(HttpStatusCode.Unused);
+        //}
     }
 }

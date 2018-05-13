@@ -34,13 +34,13 @@
 string prefix = "";
 string defaultDbSchema = "dbo";
 string connectionStringName = "your ConnectionString name";
-AzdaraPOCO poco = new AzdaraPOCO(new CodeConfig() { prefixCSharp = prefix, defaultSchema = defaultDbSchema });
+AzdaraPOCO poco = new AzdaraPOCO(new CodeConfig() { prefixCSharp = prefix, defaultSchema = defaultDbSchema, folderName = connectionStringName});
 poco.GetDbStructure(new DBSchemaSettings() { connectionStringName = connectionStringName, providerName = "System.Data.SqlClient" });
 ```
 
 ```c#
 //2. generate classes *.cs 
-poco.GenerateAndBuildCSharpCode(new SchemaWriterSettings() { IsRegionProperties = true });
+poco.GenerateCSharpCode(new SchemaWriterSettings() { IsRegionProperties = true });
 ```
 
 ```c#

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AzdaraPOCO.cs" />
     <Compile Include="CodeBuilder\BuildCSharpCode.cs" />
+    <Compile Include="CodeGenerator\Helpers\SafeCSharpName.cs" />
     <Compile Include="CodeGenerator\SchemaWriter.cs" />
     <Compile Include="CodeGenerator\Settings\SchemaWriterSettings.cs" />
     <Compile Include="CodeConfig.cs" />

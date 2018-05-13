@@ -28,10 +28,14 @@
             string defaultDbSchema = WebConfigurationManager.AppSettings["defaultSchema"];
 
             //1. read structure of the database
-            poco = new AzdaraPOCO(new CodeConfig() { prefixCSharp = prefix, defaultSchema = defaultDbSchema });
+            poco = new AzdaraPOCO(new CodeConfig() {
+                prefixCSharp = prefix,
+                defaultSchema = defaultDbSchema,
+                folderName = connectionStringName
+            });
             poco.GetDbStructure(new DBSchemaSettings() { connectionStringName = connectionStringName, providerName = "System.Data.SqlClient" });
             //2. generate classes *.cs 
-            poco.GenerateAndBuildCSharpCode(new SchemaWriterSettings() { IsRegionProperties = true });
+            poco.GenerateCSharpCode(new SchemaWriterSettings() { IsRegionProperties = true });
             //3. build .dll
             poco.BuildAssembly();
         }
@@ -55,11 +59,17 @@
                 AllowedQueryOptions = Microsoft.AspNet.OData.Query.AllowedQueryOptions.All,
                 AllowedFunctions = Microsoft.AspNet.OData.Query.AllowedFunctions.All,
                 AllowedArithmeticOperators = Microsoft.AspNet.OData.Query.AllowedArithmeticOperators.All,
-                AllowedLogicalOperators = Microsoft.AspNet.OData.Query.AllowedLogicalOperators.All
+                AllowedLogicalOperators = Microsoft.AspNet.OData.Query.AllowedLogicalOperators.All,
+                //HandleNullPropagation = Microsoft.AspNet.OData.Query.HandleNullPropagationOption.True
             });
 
             //строка для включения null значений в открытых типах, пример свойство в сущности public IDictionary<string, object> DynamicProperties { get; set; }
             config.Properties.AddOrUpdate("System.Web.OData.NullDynamicPropertyKey", val => true, (oldVal, newVal) => true);
+            //Activate a key as Segment. Then request an entity with key as segment, the URL will be like ~/EntitySet/KeyValue or old ~/EntitySet(KeyValue)
+            //Note : If entity type has composite key, then key as segment is not supported for this entity type
+            config.SetUrlKeyDelimiter(Microsoft.OData.ODataUrlKeyDelimiter.Slash);
+
+            config.SetTimeZoneInfo(TimeZoneInfo.Utc);
 
             // Конфигурация и службы веб-API
             IEdmModel EDMmodel = Metadata();
@@ -69,10 +79,17 @@
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            // Create the default collection of built-in conventions.
+            //var conventions = Microsoft.AspNet.OData.Routing.Conventions.ODataRoutingConventions.CreateDefault();
+            // Insert the custom convention at the start of the collection.
+            //conventions.Insert(0, new NavigationIndexRoutingConvention());
+
             config.MapODataServiceRoute(
                 routeName: "ODataRoute",
                 routePrefix: "odata",
                 model: EDMmodel
+                //,pathHandler: new Microsoft.AspNet.OData.Routing.DefaultODataPathHandler(),
+                //routingConventions: conventions
                 );
 
             config.Routes.MapHttpRoute(
@@ -93,7 +110,7 @@
         {
             //Создает модель EDM (модель EDM). OData Endpoint
             ODataModelBuilder builder = new ODataConventionModelBuilder();
-            builder.Namespace = poco.schema.Settings.connectionStringName;
+            builder.Namespace = poco.codeConfig.folderName;
             builder.ContainerName = "Default";
 
             Assembly assembly = poco.assembly;

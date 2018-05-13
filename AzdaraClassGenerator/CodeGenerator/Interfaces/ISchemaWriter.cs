@@ -4,7 +4,7 @@
 
     interface ISchemaWriter
     {
-        void BuildAll(string dirCSharpCode);
+        void WriteAll(string dirCSharpCode);
 
         void WriteLibraries();
 

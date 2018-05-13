@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzdaraServer", "AzdaraServer\AzdaraServer.csproj", "{A2088B19-8CF6-45B4-92CD-FEF8DB891702}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzdaraServer.Tests", "AzdaraServer.Tests\AzdaraServer.Tests.csproj", "{5CFE1E2F-1614-4116-A982-5E8B3A242E4F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzdaraServer.Chinook.Tests", "AzdaraServer.Tests\AzdaraServer.Chinook.Tests.csproj", "{5CFE1E2F-1614-4116-A982-5E8B3A242E4F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzdaraClassGenerator", "AzdaraClassGenerator\AzdaraClassGenerator.csproj", "{91BBDBAA-3DBD-4DB4-98B0-2CAC7631277E}"
 EndProject

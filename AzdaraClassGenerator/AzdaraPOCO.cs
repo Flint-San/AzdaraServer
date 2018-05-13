@@ -21,6 +21,8 @@
         {
             this.codeConfig = codeConfig;
 
+            if (this.codeConfig.folderName == null) throw new ArgumentNullException("folderName");
+
             ConfigExt.prefixCSharp = this.codeConfig.prefixCSharp;
             ConfigExt.defaultSchema = this.codeConfig.defaultSchema;
         }
@@ -39,10 +41,10 @@
         /// Генерация кода c# и запись в файлы *.cs
         /// </summary>
         /// <param name="writerSettings">настройки генератора c# кода</param>
-        public void GenerateAndBuildCSharpCode(SchemaWriterSettings writerSettings)
+        public void GenerateCSharpCode(SchemaWriterSettings writerSettings)
         {
             writer = new SchemaWriter(schema: schema, schemaWriterSettings: writerSettings);
-            writer.BuildAll(FileLocationEdm());
+            writer.WriteAll(FileLocationEdm());
         }
 
         /// <summary>
@@ -56,7 +58,7 @@
             //string filePath = Path.Combine(basePath, string.Format("App_Data\\Edm\\{0}", _nameDB));
             string filePath = 
                 Path.Combine(basePath, 
-                        string.Format("Edm\\{0}{1}", codeConfig.prefixCSharp, schema.Settings.connectionStringName)
+                        string.Format("Edm\\{0}{1}", codeConfig.prefixCSharp, codeConfig.folderName)
                 );
             return filePath;
         }
@@ -66,7 +68,7 @@
         public virtual void BuildAssembly()
         {
             string dirCSharpCode = FileLocationEdm();
-            string dllFileName = schema.Settings.connectionStringName;
+            string dllFileName = codeConfig.folderName;
             string[] files = Directory.GetFiles(dirCSharpCode, "*.cs", SearchOption.AllDirectories);
             assembly = BuildCSharpCode.MakeAssembly(dllFileName, dirCSharpCode, files);
         }
