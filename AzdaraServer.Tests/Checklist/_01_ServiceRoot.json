@@ -1,0 +1,65 @@
+﻿{
+  "@odata.context": "http://localhost:57394/odata/$metadata",
+  "value": [
+    {
+      "name": "Album",
+      "kind": "EntitySet",
+      "url": "Album"
+    },
+    {
+      "name": "Artist",
+      "kind": "EntitySet",
+      "url": "Artist"
+    },
+    {
+      "name": "Customer",
+      "kind": "EntitySet",
+      "url": "Customer"
+    },
+    {
+      "name": "Employee",
+      "kind": "EntitySet",
+      "url": "Employee"
+    },
+    {
+      "name": "Genre",
+      "kind": "EntitySet",
+      "url": "Genre"
+    },
+    {
+      "name": "Invoice",
+      "kind": "EntitySet",
+      "url": "Invoice"
+    },
+    {
+      "name": "InvoiceLine",
+      "kind": "EntitySet",
+      "url": "InvoiceLine"
+    },
+    {
+      "name": "MediaType",
+      "kind": "EntitySet",
+      "url": "MediaType"
+    },
+    {
+      "name": "Playlist",
+      "kind": "EntitySet",
+      "url": "Playlist"
+    },
+    {
+      "name": "PlaylistTrack",
+      "kind": "EntitySet",
+      "url": "PlaylistTrack"
+    },
+    {
+      "name": "sysdiagrams",
+      "kind": "EntitySet",
+      "url": "sysdiagrams"
+    },
+    {
+      "name": "Track",
+      "kind": "EntitySet",
+      "url": "Track"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+﻿{
+  "@odata.context": "http://localhost:57394/odata/$metadata#Customer(FirstName)",
+  "value": [
+    {
+      "FirstName": "Luís"
+    }
+  ] 
+}

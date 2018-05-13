@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:DataServices>
+    <Schema Namespace="Chinook_dbo" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="Album">
+        <Key>
+          <PropertyRef Name="AlbumId" />
+        </Key>
+        <Property Name="AlbumId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Title" Type="Edm.String" Nullable="false" />
+        <Property Name="ArtistId" Type="Edm.Int32" />
+        <NavigationProperty Name="FK_AlbumArtistId" Type="Chinook_dbo.Artist">
+          <ReferentialConstraint Property="ArtistId" ReferencedProperty="ArtistId" />
+        </NavigationProperty>
+        <NavigationProperty Name="List_Track_AlbumId" Type="Collection(Chinook_dbo.Track)" />
+      </EntityType>
+      <EntityType Name="Artist">
+        <Key>
+          <PropertyRef Name="ArtistId" />
+        </Key>
+        <Property Name="ArtistId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <NavigationProperty Name="List_Album_ArtistId" Type="Collection(Chinook_dbo.Album)" />
+      </EntityType>
+      <EntityType Name="Customer">
+        <Key>
+          <PropertyRef Name="CustomerId" />
+        </Key>
+        <Property Name="CustomerId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="FirstName" Type="Edm.String" Nullable="false" />
+        <Property Name="LastName" Type="Edm.String" Nullable="false" />
+        <Property Name="Company" Type="Edm.String" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="State" Type="Edm.String" />
+        <Property Name="Country" Type="Edm.String" />
+        <Property Name="PostalCode" Type="Edm.String" />
+        <Property Name="Phone" Type="Edm.String" />
+        <Property Name="Fax" Type="Edm.String" />
+        <Property Name="Email" Type="Edm.String" Nullable="false" />
+        <Property Name="SupportRepId" Type="Edm.Int32" />
+        <NavigationProperty Name="FK_CustomerSupportRepId" Type="Chinook_dbo.Employee">
+          <ReferentialConstraint Property="SupportRepId" ReferencedProperty="EmployeeId" />
+        </NavigationProperty>
+        <NavigationProperty Name="List_Invoice_CustomerId" Type="Collection(Chinook_dbo.Invoice)" />
+      </EntityType>
+      <EntityType Name="Employee">
+        <Key>
+          <PropertyRef Name="EmployeeId" />
+        </Key>
+        <Property Name="EmployeeId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="LastName" Type="Edm.String" Nullable="false" />
+        <Property Name="FirstName" Type="Edm.String" Nullable="false" />
+        <Property Name="Title" Type="Edm.String" />
+        <Property Name="ReportsTo" Type="Edm.Int32" />
+        <Property Name="BirthDate" Type="Edm.DateTimeOffset" />
+        <Property Name="HireDate" Type="Edm.DateTimeOffset" />
+        <Property Name="Address" Type="Edm.String" />
+        <Property Name="City" Type="Edm.String" />
+        <Property Name="State" Type="Edm.String" />
+        <Property Name="Country" Type="Edm.String" />
+        <Property Name="PostalCode" Type="Edm.String" />
+        <Property Name="Phone" Type="Edm.String" />
+        <Property Name="Fax" Type="Edm.String" />
+        <Property Name="Email" Type="Edm.String" />
+        <NavigationProperty Name="FK_EmployeeReportsTo" Type="Chinook_dbo.Employee">
+          <ReferentialConstraint Property="ReportsTo" ReferencedProperty="EmployeeId" />
+        </NavigationProperty>
+        <NavigationProperty Name="List_Customer_SupportRepId" Type="Collection(Chinook_dbo.Customer)" />
+        <NavigationProperty Name="List_Employee_ReportsTo" Type="Collection(Chinook_dbo.Employee)" />
+      </EntityType>
+      <EntityType Name="Genre">
+        <Key>
+          <PropertyRef Name="GenreId" />
+        </Key>
+        <Property Name="GenreId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <NavigationProperty Name="List_Track_GenreId" Type="Collection(Chinook_dbo.Track)" />
+      </EntityType>
+      <EntityType Name="Invoice">
+        <Key>
+          <PropertyRef Name="InvoiceId" />
+        </Key>
+        <Property Name="InvoiceId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="CustomerId" Type="Edm.Int32" />
+        <Property Name="InvoiceDate" Type="Edm.DateTimeOffset" Nullable="false" />
+        <Property Name="BillingAddress" Type="Edm.String" />
+        <Property Name="BillingCity" Type="Edm.String" />
+        <Property Name="BillingState" Type="Edm.String" />
+        <Property Name="BillingCountry" Type="Edm.String" />
+        <Property Name="BillingPostalCode" Type="Edm.String" />
+        <Property Name="Total" Type="Edm.Decimal" Nullable="false" />
+        <NavigationProperty Name="FK_InvoiceCustomerId" Type="Chinook_dbo.Customer">
+          <ReferentialConstraint Property="CustomerId" ReferencedProperty="CustomerId" />
+        </NavigationProperty>
+        <NavigationProperty Name="List_InvoiceLine_InvoiceId" Type="Collection(Chinook_dbo.InvoiceLine)" />
+      </EntityType>
+      <EntityType Name="InvoiceLine">
+        <Key>
+          <PropertyRef Name="InvoiceLineId" />
+        </Key>
+        <Property Name="InvoiceLineId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="InvoiceId" Type="Edm.Int32" />
+        <Property Name="TrackId" Type="Edm.Int32" />
+        <Property Name="UnitPrice" Type="Edm.Decimal" Nullable="false" />
+        <Property Name="Quantity" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="FK_InvoiceLineInvoiceId" Type="Chinook_dbo.Invoice">
+          <ReferentialConstraint Property="InvoiceId" ReferencedProperty="InvoiceId" />
+        </NavigationProperty>
+        <NavigationProperty Name="FK_InvoiceLineTrackId" Type="Chinook_dbo.Track">
+          <ReferentialConstraint Property="TrackId" ReferencedProperty="TrackId" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="MediaType">
+        <Key>
+          <PropertyRef Name="MediaTypeId" />
+        </Key>
+        <Property Name="MediaTypeId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <NavigationProperty Name="List_Track_MediaTypeId" Type="Collection(Chinook_dbo.Track)" />
+      </EntityType>
+      <EntityType Name="Playlist">
+        <Key>
+          <PropertyRef Name="PlaylistId" />
+        </Key>
+        <Property Name="PlaylistId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <NavigationProperty Name="List_PlaylistTrack_PlaylistId" Type="Collection(Chinook_dbo.PlaylistTrack)" />
+      </EntityType>
+      <EntityType Name="PlaylistTrack">
+        <Key>
+          <PropertyRef Name="PlaylistId" />
+          <PropertyRef Name="TrackId" />
+        </Key>
+        <Property Name="PlaylistId" Type="Edm.Int32" />
+        <Property Name="TrackId" Type="Edm.Int32" />
+        <NavigationProperty Name="FK_PlaylistTrackPlaylistId" Type="Chinook_dbo.Playlist">
+          <ReferentialConstraint Property="PlaylistId" ReferencedProperty="PlaylistId" />
+        </NavigationProperty>
+        <NavigationProperty Name="FK_PlaylistTrackTrackId" Type="Chinook_dbo.Track">
+          <ReferentialConstraint Property="TrackId" ReferencedProperty="TrackId" />
+        </NavigationProperty>
+      </EntityType>
+      <EntityType Name="sysdiagrams">
+        <Key>
+          <PropertyRef Name="diagram_id" />
+        </Key>
+        <Property Name="name" Type="Edm.String" Nullable="false" />
+        <Property Name="principal_id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="diagram_id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="version" Type="Edm.Int32" />
+        <Property Name="definition" Type="Collection(Edm.Byte)" />
+      </EntityType>
+      <EntityType Name="Track">
+        <Key>
+          <PropertyRef Name="TrackId" />
+        </Key>
+        <Property Name="TrackId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" />
+        <Property Name="AlbumId" Type="Edm.Int32" />
+        <Property Name="MediaTypeId" Type="Edm.Int32" />
+        <Property Name="GenreId" Type="Edm.Int32" />
+        <Property Name="Composer" Type="Edm.String" />
+        <Property Name="Milliseconds" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Bytes" Type="Edm.Int32" />
+        <Property Name="UnitPrice" Type="Edm.Decimal" Nullable="false" />
+        <NavigationProperty Name="FK_TrackAlbumId" Type="Chinook_dbo.Album">
+          <ReferentialConstraint Property="AlbumId" ReferencedProperty="AlbumId" />
+        </NavigationProperty>
+        <NavigationProperty Name="FK_TrackGenreId" Type="Chinook_dbo.Genre">
+          <ReferentialConstraint Property="GenreId" ReferencedProperty="GenreId" />
+        </NavigationProperty>
+        <NavigationProperty Name="FK_TrackMediaTypeId" Type="Chinook_dbo.MediaType">
+          <ReferentialConstraint Property="MediaTypeId" ReferencedProperty="MediaTypeId" />
+        </NavigationProperty>
+        <NavigationProperty Name="List_InvoiceLine_TrackId" Type="Collection(Chinook_dbo.InvoiceLine)" />
+        <NavigationProperty Name="List_PlaylistTrack_TrackId" Type="Collection(Chinook_dbo.PlaylistTrack)" />
+      </EntityType>
+    </Schema>
+    <Schema Namespace="Chinook" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityContainer Name="Default">
+        <EntitySet Name="Album" EntityType="Chinook_dbo.Album">
+          <NavigationPropertyBinding Path="FK_AlbumArtistId" Target="Artist" />
+          <NavigationPropertyBinding Path="List_Track_AlbumId" Target="Track" />
+        </EntitySet>
+        <EntitySet Name="Artist" EntityType="Chinook_dbo.Artist">
+          <NavigationPropertyBinding Path="List_Album_ArtistId" Target="Album" />
+        </EntitySet>
+        <EntitySet Name="Customer" EntityType="Chinook_dbo.Customer">
+          <NavigationPropertyBinding Path="FK_CustomerSupportRepId" Target="Employee" />
+          <NavigationPropertyBinding Path="List_Invoice_CustomerId" Target="Invoice" />
+        </EntitySet>
+        <EntitySet Name="Employee" EntityType="Chinook_dbo.Employee">
+          <NavigationPropertyBinding Path="FK_EmployeeReportsTo" Target="Employee" />
+          <NavigationPropertyBinding Path="List_Customer_SupportRepId" Target="Customer" />
+          <NavigationPropertyBinding Path="List_Employee_ReportsTo" Target="Employee" />
+        </EntitySet>
+        <EntitySet Name="Genre" EntityType="Chinook_dbo.Genre">
+          <NavigationPropertyBinding Path="List_Track_GenreId" Target="Track" />
+        </EntitySet>
+        <EntitySet Name="Invoice" EntityType="Chinook_dbo.Invoice">
+          <NavigationPropertyBinding Path="FK_InvoiceCustomerId" Target="Customer" />
+          <NavigationPropertyBinding Path="List_InvoiceLine_InvoiceId" Target="InvoiceLine" />
+        </EntitySet>
+        <EntitySet Name="InvoiceLine" EntityType="Chinook_dbo.InvoiceLine">
+          <NavigationPropertyBinding Path="FK_InvoiceLineInvoiceId" Target="Invoice" />
+          <NavigationPropertyBinding Path="FK_InvoiceLineTrackId" Target="Track" />
+        </EntitySet>
+        <EntitySet Name="MediaType" EntityType="Chinook_dbo.MediaType">
+          <NavigationPropertyBinding Path="List_Track_MediaTypeId" Target="Track" />
+        </EntitySet>
+        <EntitySet Name="Playlist" EntityType="Chinook_dbo.Playlist">
+          <NavigationPropertyBinding Path="List_PlaylistTrack_PlaylistId" Target="PlaylistTrack" />
+        </EntitySet>
+        <EntitySet Name="PlaylistTrack" EntityType="Chinook_dbo.PlaylistTrack">
+          <NavigationPropertyBinding Path="FK_PlaylistTrackPlaylistId" Target="Playlist" />
+          <NavigationPropertyBinding Path="FK_PlaylistTrackTrackId" Target="Track" />
+        </EntitySet>
+        <EntitySet Name="sysdiagrams" EntityType="Chinook_dbo.sysdiagrams" />
+        <EntitySet Name="Track" EntityType="Chinook_dbo.Track">
+          <NavigationPropertyBinding Path="FK_TrackAlbumId" Target="Album" />
+          <NavigationPropertyBinding Path="FK_TrackGenreId" Target="Genre" />
+          <NavigationPropertyBinding Path="FK_TrackMediaTypeId" Target="MediaType" />
+          <NavigationPropertyBinding Path="List_InvoiceLine_TrackId" Target="InvoiceLine" />
+          <NavigationPropertyBinding Path="List_PlaylistTrack_TrackId" Target="PlaylistTrack" />
+        </EntitySet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

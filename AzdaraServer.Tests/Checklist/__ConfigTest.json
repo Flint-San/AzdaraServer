@@ -1,0 +1,48 @@
+﻿{
+  "root": {
+    "url": "",
+    "checkFilePath": "_01_ServiceRoot.json"
+  },
+  "metadata": {
+    "url": "odata/$metadata",
+    "checkFilePath": "_02_Metadata.xml"
+  },
+  "ReadEntity": {
+    "url": "odata/Customer",
+    "checkFilePath": "\\Customer\\_03_Customer.json"
+  },
+  "GetSingleEntityById": {
+    "url": "odata/Customer(1)",
+    "checkFilePath": "\\Customer\\_04_Customer(1).json"
+  },
+  "GetPrimitiveProperty": {
+    //"url": "odata/Customer(1)/FirstName", // i can't do it right now :(
+    //"checkFilePath": "\\Customer\\_05_Customer(1)_FirstName.json",
+    "url": "odata/Customer(1)?$select=FirstName",
+    "checkFilePath": "\\Customer\\_05_Customer(1)_Select_FirstName.json"
+  },
+  "SelectAllProperties": {
+    "url": "odata/Customer?$select=*",
+    "checkFilePath": "\\Customer\\_06_Customer_SelectAllProperties.json"
+  },
+  "FullMetadata": {
+    "url": "/odata/Customer?$format=application/json;odata.metadata=full",
+    "checkFilePath": "\\Customer\\_07_GetCustomerWithFullMetadata.json"
+  },
+  "Filter_SelectFields_Count": {
+    "url": "odata/Customer?$filter=State eq null&$select=CustomerId,FirstName,LastName,Country,Phone,Email,SupportRepId&$count=true",
+    "checkFilePath": "\\Customer\\_08_FilterStateIsNull.json"
+  },
+  "SortBy_And_Paging": {
+    "url": "odata/Customer?$orderby=LastName desc,FirstName asc&$skip=10&$top=10",
+    "checkFilePath": "\\Customer\\_09_SortBy_And_Paging.json"
+  },
+  "ExpandByForeignKey": {
+    "url": "/odata/Customer?$expand=FK_CustomerSupportRepId($select=EmployeeId,LastName,FirstName,ReportsTo)",
+    "checkFilePath": "\\Customer\\_10_ExpandByForeignKey.json"
+  },
+  "ExpandReverse": {
+    "url": "/odata/Customer?$expand=List_Invoice_CustomerId($filter=Total ge 9.99)",
+    "checkFilePath": "\\Customer\\_11_ExpandReverse.json"
+  }
+}

@@ -1,0 +1,20 @@
+﻿{
+  "@odata.context": "http://localhost:57394/odata/$metadata#Customer",
+  "value": [
+    {
+      "CustomerId": 1,
+      "FirstName": "Luís",
+      "LastName": "Gonçalves",
+      "Company": "Embraer - Empresa Brasileira de Aeronáutica S.A.",
+      "Address": "Av. Brigadeiro Faria Lima, 2170",
+      "City": "São José dos Campos",
+      "State": "SP",
+      "Country": "Brazil",
+      "PostalCode": "12227-000",
+      "Phone": "+55 (12) 3923-5555",
+      "Fax": "+55 (12) 3923-5566",
+      "Email": "luisg@embraer.com.br",
+      "SupportRepId": 3
+    }
+  ]
+}

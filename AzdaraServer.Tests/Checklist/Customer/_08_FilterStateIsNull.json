@@ -1,0 +1,267 @@
+﻿{
+  "@odata.context": "http://localhost:57394/odata/$metadata#Customer(CustomerId,FirstName,LastName,Country,Phone,Email,SupportRepId)",
+  "@odata.count": 29,
+  "value": [
+    {
+      "CustomerId": 2,
+      "FirstName": "Leonie",
+      "LastName": "Köhler",
+      "Country": "Germany",
+      "Phone": "+49 0711 2842222",
+      "Email": "leonekohler@surfeu.de",
+      "SupportRepId": 5
+    },
+    {
+      "CustomerId": 4,
+      "FirstName": "Bjørn",
+      "LastName": "Hansen",
+      "Country": "Norway",
+      "Phone": "+47 22 44 22 22",
+      "Email": "bjorn.hansen@yahoo.no",
+      "SupportRepId": 4
+    },
+    {
+      "CustomerId": 5,
+      "FirstName": "František",
+      "LastName": "Wichterlová",
+      "Country": "Czech Republic",
+      "Phone": "+420 2 4172 5555",
+      "Email": "frantisekw@jetbrains.com",
+      "SupportRepId": 4
+    },
+    {
+      "CustomerId": 6,
+      "FirstName": "Helena",
+      "LastName": "Holý",
+      "Country": "Czech Republic",
+      "Phone": "+420 2 4177 0449",
+      "Email": "hholy@gmail.com",
+      "SupportRepId": 5
+    },
+    {
+      "CustomerId": 7,
+      "FirstName": "Astrid",
+      "LastName": "Gruber",
+      "Country": "Austria",
+      "Phone": "+43 01 5134505",
+      "Email": "astrid.gruber@apple.at",
+      "SupportRepId": 5
+    },
+    {
+      "CustomerId": 8,
+      "FirstName": "Daan",
+      "LastName": "Peeters",
+      "Country": "Belgium",
+      "Phone": "+32 02 219 03 03",
+      "Email": "daan_peeters@apple.be",
+      "SupportRepId": 4
+    },
+    {
+      "CustomerId": 9,
+      "FirstName": "Kara",
+      "LastName": "Nielsen",
+      "Country": "Denmark",
+      "Phone": "+453 3331 9991",
+      "Email": "kara.nielsen@jubii.dk",
+      "SupportRepId": 4
+    },
+    {
+      "CustomerId": 34,
+      "FirstName": "João",
+      "LastName": "Fernandes",
+      "Country": "Portugal",
+      "Phone": "+351 (213) 466-111",
+      "Email": "jfernandes@yahoo.pt",
+      "SupportRepId": 4
+    },
+    {
+      "CustomerId": 35,
+      "FirstName": "Madalena",
+      "LastName": "Sampaio",
+      "Country": "Portugal",
+      "Phone": "+351 (225) 022-448",
+      "Email": "masampaio@sapo.pt",
+      "SupportRepId": 4
+    },
+    {
+      "CustomerId": 36,
+      "FirstName": "Hannah",
+      "LastName": "Schneider",
+      "Country": "Germany",
+      "Phone": "+49 030 26550280",
+      "Email": "hannah.schneider@yahoo.de",
+      "SupportRepId": 5
+    },
+    {
+      "CustomerId": 37,
+      "FirstName": "Fynn",
+      "LastName": "Zimmermann",
+      "Country": "Germany",
+      "Phone": "+49 069 40598889",
+      "Email": "fzimmermann@yahoo.de",
+      "SupportRepId": 3
+    },
+    {
+      "CustomerId": 38,
+      "FirstName": "Niklas",
+      "LastName": "Schröder",
+      "Country": "Germany",
+      "Phone": "+49 030 2141444",
+      "Email": "nschroder@surfeu.de",
+      "SupportRepId": 3
+    },
+    {
+      "CustomerId": 39,
+      "FirstName": "Camille",
+      "LastName": "Bernard",
+      "Country": "France",
+      "Phone": "+33 01 49 70 65 65",
+      "Email": "camille.bernard@yahoo.fr",
+      "SupportRepId": 4
+    },
+    {
+      "CustomerId": 40,
+      "FirstName": "Dominique",
+      "LastName": "Lefebvre",
+      "Country": "France",
+      "Phone": "+33 01 47 42 71 71",
+      "Email": "dominiquelefebvre@gmail.com",
+      "SupportRepId": 4
+    },
+    {
+      "CustomerId": 41,
+      "FirstName": "Marc",
+      "LastName": "Dubois",
+      "Country": "France",
+      "Phone": "+33 04 78 30 30 30",
+      "Email": "marc.dubois@hotmail.com",
+      "SupportRepId": 5
+    },
+    {
+      "CustomerId": 42,
+      "FirstName": "Wyatt",
+      "LastName": "Girard",
+      "Country": "France",
+      "Phone": "+33 05 56 96 96 96",
+      "Email": "wyatt.girard@yahoo.fr",
+      "SupportRepId": 3
+    },
+    {
+      "CustomerId": 43,
+      "FirstName": "Isabelle",
+      "LastName": "Mercier",
+      "Country": "France",
+      "Phone": "+33 03 80 73 66 99",
+      "Email": "isabelle_mercier@apple.fr",
+      "SupportRepId": 3
+    },
+    {
+      "CustomerId": 44,
+      "FirstName": "Terhi",
+      "LastName": "Hämäläinen",
+      "Country": "Finland",
+      "Phone": "+358 09 870 2000",
+      "Email": "terhi.hamalainen@apple.fi",
+      "SupportRepId": 3
+    },
+    {
+      "CustomerId": 45,
+      "FirstName": "Ladislav",
+      "LastName": "Kovács",
+      "Country": "Hungary",
+      "Phone": null,
+      "Email": "ladislav_kovacs@apple.hu",
+      "SupportRepId": 3
+    },
+    {
+      "CustomerId": 49,
+      "FirstName": "Stanisław",
+      "LastName": "Wójcik",
+      "Country": "Poland",
+      "Phone": "+48 22 828 37 39",
+      "Email": "stanisław.wójcik@wp.pl",
+      "SupportRepId": 4
+    },
+    {
+      "CustomerId": 50,
+      "FirstName": "Enrique",
+      "LastName": "Muñoz",
+      "Country": "Spain",
+      "Phone": "+34 914 454 454",
+      "Email": "enrique_munoz@yahoo.es",
+      "SupportRepId": 5
+    },
+    {
+      "CustomerId": 51,
+      "FirstName": "Joakim",
+      "LastName": "Johansson",
+      "Country": "Sweden",
+      "Phone": "+46 08-651 52 52",
+      "Email": "joakim.johansson@yahoo.se",
+      "SupportRepId": 5
+    },
+    {
+      "CustomerId": 52,
+      "FirstName": "Emma",
+      "LastName": "Jones",
+      "Country": "United Kingdom",
+      "Phone": "+44 020 7707 0707",
+      "Email": "emma_jones@hotmail.com",
+      "SupportRepId": 3
+    },
+    {
+      "CustomerId": 53,
+      "FirstName": "Phil",
+      "LastName": "Hughes",
+      "Country": "United Kingdom",
+      "Phone": "+44 020 7976 5722",
+      "Email": "phil.hughes@gmail.com",
+      "SupportRepId": 3
+    },
+    {
+      "CustomerId": 54,
+      "FirstName": "Steve",
+      "LastName": "Murray",
+      "Country": "United Kingdom",
+      "Phone": "+44 0131 315 3300",
+      "Email": "steve.murray@yahoo.uk",
+      "SupportRepId": 5
+    },
+    {
+      "CustomerId": 56,
+      "FirstName": "Diego",
+      "LastName": "Gutiérrez",
+      "Country": "Argentina",
+      "Phone": "+54 (0)11 4311 4333",
+      "Email": "diego.gutierrez@yahoo.ar",
+      "SupportRepId": 4
+    },
+    {
+      "CustomerId": 57,
+      "FirstName": "Luis",
+      "LastName": "Rojas",
+      "Country": "Chile",
+      "Phone": "+56 (0)2 635 4444",
+      "Email": "luisrojas@yahoo.cl",
+      "SupportRepId": 5
+    },
+    {
+      "CustomerId": 58,
+      "FirstName": "Manoj",
+      "LastName": "Pareek",
+      "Country": "India",
+      "Phone": "+91 0124 39883988",
+      "Email": "manoj.pareek@rediff.com",
+      "SupportRepId": 3
+    },
+    {
+      "CustomerId": 59,
+      "FirstName": "Puja",
+      "LastName": "Srivastava",
+      "Country": "India",
+      "Phone": "+91 080 22289999",
+      "Email": "puja_srivastava@yahoo.in",
+      "SupportRepId": 3
+    }
+  ]
+}
